@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 export default async function IntakePage() {
   async function createPet(formData: FormData) {
     "use server";

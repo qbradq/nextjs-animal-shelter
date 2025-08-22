@@ -2,6 +2,8 @@ import { Pet } from "@/app/data";
 import { Params } from "next/dist/server/request/params";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 export default async function PetPage({ params }: { params: Params }) {
   const { id } = await params;
   const res = await fetch(`${process.env.HOST}/api/pets/${id}`);

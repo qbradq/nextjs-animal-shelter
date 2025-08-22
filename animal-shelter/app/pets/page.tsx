@@ -2,6 +2,8 @@ import { Pet } from "@/app/data";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function PetsPage() {
   const res = await fetch(process.env.HOST + "/api/pets");
   const pets = await res.json();
