@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/NavBar/NavBar";
-import GitHubButton from "react-github-btn";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {

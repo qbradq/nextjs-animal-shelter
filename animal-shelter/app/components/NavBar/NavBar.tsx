@@ -15,7 +15,9 @@ export default function NavBar() {
     >
       <div className="flex justify-around container mx-auto py-2">
         <Link href={"/"} className="nav-link">
-          <h1 className="text-2xl font-bold">Brad's Example Animal Shelter</h1>
+          <h1 className="text-2xl font-bold">
+            Brad&apos;s Example Animal Shelter
+          </h1>
         </Link>
         <span
           onClick={() => setNavBarOpen(!navBarOpen)}

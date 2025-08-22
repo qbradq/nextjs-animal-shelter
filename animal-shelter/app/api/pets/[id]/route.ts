@@ -1,15 +1,11 @@
 import { NextRequest } from "next/server";
 import { dbConnect } from "../../db";
 
-type Params = {
-  id: string;
-};
-
 export async function GET(
   request: NextRequest,
-  { params }: { params: Params },
+  context: { params: Promise<{ id: string }> },
 ) {
-  const { id } = await params;
+  const { id } = await context.params;
   const { db } = await dbConnect();
   const pet = await db.collection("pets").findOne({ uuid: id });
   if (!pet) {
