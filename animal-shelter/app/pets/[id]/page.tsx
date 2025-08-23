@@ -1,6 +1,5 @@
 import { Pet } from "@/app/data";
 import { Params } from "next/dist/server/request/params";
-import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -11,16 +10,15 @@ export default async function PetPage({ params }: { params: Params }) {
   return (
     <>
       <div className="page-title">{pet.name}</div>
-      <div className="flex flex-col md:flex-row">
-        <Image
-          src={"/" + pet.image}
+      <div className="flex flex-col items-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={process.env.CLOUDFRONT_URL + "/" + pet.image}
           alt={"Photo of " + pet.name}
-          width={600}
-          height={600}
-          className="pb-4 pr-0 md:pr-4"
+          className="w-sm md:w-3xl border-2 border-black border-r-0 rounded-lg"
         />
-        <div>
-          <p className="pb-4">{pet.description}</p>
+        <div className="w-full md:w-3/4">
+          <p className="p-4">{pet.description}</p>
           <div className="flex flex-col items-center pb-4">
             <button className="btn btn-blue">Adopt Me!</button>
           </div>

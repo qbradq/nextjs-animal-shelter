@@ -31,9 +31,11 @@ export default function NavBar() {
         </span>
         <ul
           className={classNames(
-            `absolute left-0 bg-white w-full
-                    flex flex-col items-center gap-8 md:static md:flex-row
-                    md:justify-end md:flex-wrap md:max-w-[32-rem] md:p-0.5`,
+            `
+            absolute left-0 bg-white w-full flex flex-col items-center gap-8
+            md:static md:flex-row md:justify-end md:flex-wrap md:max-w-[32-rem]
+            md:p-0.5 border-b-4 border-gray-400 md:border-0
+            `,
             `${navBarOpen ? "top-[52px]" : "top-[-1000px]"}`,
           )}
         >
