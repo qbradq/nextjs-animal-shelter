@@ -138,15 +138,6 @@ export default function IntakePage() {
               />
             </ReactCrop>
           )}
-          <canvas
-            width={768}
-            height={768}
-            style={{
-              width: "768px",
-              height: "768px",
-            }}
-            className="border-2 border-black rounded-sm"
-          ></canvas>
           <label htmlFor="image">Photo</label>
           <input
             type="file"

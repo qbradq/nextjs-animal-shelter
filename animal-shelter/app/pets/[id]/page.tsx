@@ -21,6 +21,7 @@ export default async function PetPage({ params }: { params: Params }) {
           <p className="p-4">{pet.description}</p>
           <div className="flex flex-col items-center pb-4">
             <button className="btn btn-blue">Adopt Me!</button>
+            <button className="btn btn-red">Remove</button>
           </div>
         </div>
       </div>

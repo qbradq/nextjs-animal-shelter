@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "./NavBar.module.css";
+import styles from "./NavBar.module.css";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseSharp } from "react-icons/io5";
@@ -40,12 +40,12 @@ export default function NavBar() {
           )}
         >
           <li>
-            <Link href={"/pets"} className="nav-link">
+            <Link href={"/pets"} className={styles.navLink}>
               Pets
             </Link>
           </li>
           <li>
-            <Link href={"/intake"} className="nav-link">
+            <Link href={"/intake"} className={styles.navLink}>
               Intake
             </Link>
           </li>
