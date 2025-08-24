@@ -1,5 +1,0 @@
-@reference "../../globals.css";
-
-.navLink {
-  @apply text-2xl my-auto text-slate-900 hover:text-slate-400 font-bold cursor-pointer;
-}

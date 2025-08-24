@@ -5,6 +5,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Link from "@mui/material/Link";
 import NextLink from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,15 +15,30 @@ export default function Home() {
           my: 4,
           display: "flex",
           flexDirection: "column",
+          textAlign: "center",
         }}
       >
         <Typography variant="h3" component="h1" align="center" sx={{ mb: 2 }}>
           Brad&apos;s Example Animal Shelter
         </Typography>
-        <Typography variant="body1" component="p">
-          This is an example full stack, cloud-deployed web application project
-          that serves as a personal skills demonstration.
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Image
+            src="/author.jpg"
+            alt="Photo of the author"
+            width={512}
+            height={512}
+            className="mx-auto border-2 border-black rounded-lg"
+          />
+          <Typography variant="body1" component="p">
+            This is an example full stack, cloud-deployed web application
+            project that serves as a personal skills demonstration.
+          </Typography>
+        </Box>
         <Typography variant="h5" component="h2" sx={{ fontWeight: "bold" }}>
           Technologies and Services Used:
         </Typography>
@@ -96,7 +112,7 @@ export default function Home() {
               component={NextLink}
               target="_blank"
             >
-              Strict Typing for JavaScript
+              TypeScript - Strict Typing for JavaScript
             </Link>
           </ListItem>
         </List>

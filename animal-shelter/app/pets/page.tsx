@@ -1,5 +1,11 @@
-import { Pet } from "@/app/data";
-import Link from "next/link";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import { Pet } from "../data";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
 
 export const dynamic = "force-dynamic";
 
@@ -7,27 +13,34 @@ export default async function PetsPage() {
   const res = await fetch(process.env.HOST + "/api/pets");
   const pets = await res.json();
   return (
-    <>
-      <div className="page-title">Pets for Adoption</div>
-      <div className="flex flex-col flex- items-center">
-        {pets.map((pet: Pet) => (
-          <Link key={pet.uuid} href={"/pets/" + pet.uuid}>
-            <div
-              key={pet.uuid}
-              className="w-sm md:w-2xl border-black border-2 rounded-sm my-1"
-            >
-              <div className="text-2xl font-bold text-center bg-blue-300 border-black border-b-2">
+    <Grid container spacing={2} padding={2}>
+      {pets.map((pet: Pet) => (
+        <Grid key={pet.uuid} size={{ xs: 12, md: 6, lg: 4, xl: 3 }}>
+          <Card>
+            <CardContent>
+              <Typography
+                variant="h4"
+                component="h1"
+                sx={{ textAlign: "center" }}
+              >
                 {pet.name}
-              </div>
+              </Typography>
+            </CardContent>
+            <CardMedia>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={process.env.CLOUDFRONT_URL + "/" + pet.image}
-                alt={pet.name}
+                alt={"Photo of " + pet.name}
               />
-            </div>
-          </Link>
-        ))}
-      </div>
-    </>
+            </CardMedia>
+            <CardActions>
+              <Button size="small" href={"/pets/" + pet.uuid}>
+                Learn More
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
