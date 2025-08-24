@@ -11,6 +11,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
+import { redirect } from "next/navigation";
+import { deletePet } from "../actions";
 
 export default function PetDetails({ pet }: { pet: Pet }) {
   const [open, setOpen] = useState(false);
@@ -20,7 +22,12 @@ export default function PetDetails({ pet }: { pet: Pet }) {
   function onClose() {
     setOpen(false);
   }
-  function onDelete() {}
+  function onDelete() {
+    deletePet(pet.uuid);
+    setTimeout(() => {
+      redirect("/pets");
+    }, 1000);
+  }
   return (
     <>
       <Dialog open={open} onClose={onClose}>

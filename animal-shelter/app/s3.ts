@@ -1,4 +1,8 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  DeleteObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
 
 let cachedS3Client: S3Client | null = null;
 
@@ -22,5 +26,14 @@ export async function s3Image(uuid: string, buf: Buffer) {
     Key: uuid + ".jpg",
     Body: buf,
   });
-  await client.send(command);
+  return client.send(command);
+}
+
+export async function s3ImageRemove(uuid: string) {
+  const client = s3Client();
+  const command = new DeleteObjectCommand({
+    Bucket: "animal-shelter-image",
+    Key: uuid + ".jpg",
+  });
+  return client.send(command);
 }
