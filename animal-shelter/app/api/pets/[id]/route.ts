@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { dbConnect } from "../../db";
+import { dbConnect } from "../../../db";
 
 export async function GET(
   request: NextRequest,

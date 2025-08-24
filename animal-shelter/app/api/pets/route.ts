@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { dbConnect } from "../db";
+import { dbConnect } from "../../db";
 import { Pet } from "@/app/data";
 import { s3Image } from "../s3";
 
