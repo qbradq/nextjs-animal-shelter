@@ -49,7 +49,7 @@ export default function Home() {
               component={NextLink}
               target="_blank"
             >
-              Next.js - React.js Framework
+              Next.js - React.js Framework hosted on Vercel
             </Link>
           </ListItem>
           <ListItem>

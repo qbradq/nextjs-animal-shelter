@@ -17,6 +17,14 @@ export default async function PetsPage() {
       {pets.map((pet: Pet) => (
         <Grid key={pet.uuid} size={{ xs: 12, md: 6, lg: 4, xl: 3 }}>
           <Card>
+            <CardMedia>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={process.env.CLOUDFRONT_URL + "/" + pet.image}
+                alt={"Photo of " + pet.name}
+                className="border-2 border-black rounded-lg"
+              />
+            </CardMedia>
             <CardContent>
               <Typography
                 variant="h4"
@@ -26,13 +34,6 @@ export default async function PetsPage() {
                 {pet.name}
               </Typography>
             </CardContent>
-            <CardMedia>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={process.env.CLOUDFRONT_URL + "/" + pet.image}
-                alt={"Photo of " + pet.name}
-              />
-            </CardMedia>
             <CardActions>
               <Button size="small" href={"/pets/" + pet.uuid}>
                 Learn More
