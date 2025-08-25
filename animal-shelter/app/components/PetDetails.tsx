@@ -51,6 +51,7 @@ export default function PetDetails({ pet }: { pet: Pet }) {
           sx={{
             display: "flex",
             flexDirection: "column",
+            justifyItems: "center",
           }}
         >
           <Typography variant="h4" component="h1" textAlign="center">
@@ -62,7 +63,14 @@ export default function PetDetails({ pet }: { pet: Pet }) {
             alt={"Photo of " + pet.name}
             className="w-3xl border-2 border-black border-r-0 rounded-lg self-center"
           />
-          <Typography variant="body1" component="p">
+          <Typography
+            variant="body1"
+            component="p"
+            whiteSpace="pre-line"
+            width="80%"
+            display="block"
+            margin="auto"
+          >
             {pet.description}
           </Typography>
           <Box
